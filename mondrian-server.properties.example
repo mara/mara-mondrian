@@ -1,0 +1,46 @@
+#
+# Configuration file for a Mondrian Server instance
+#
+
+# connection to the postgresql dwh database that contains the data
+databaseUrl=jdbc:postgresql://localhost/dwh_db?user=root&password=
+
+
+# absolute path to a mondrian schema file
+mondrianSchemaFile=/absolute/path/to/mondrian-schema.xml
+
+
+# --- Saiku auth / ACL, see README ---
+
+# URL that will be called to check whether a given user has access rights to Saiku
+#saikuAuthorizationUrl=http://localhost:5000/mondrian/saiku/authorize
+
+# A fixed user name and password for simple Saiku authentication
+saikuUsername =
+saikuPassword =
+
+
+# the local directory where Saiku user queries are stored
+saikuStorageDir=/absolute/path/to/saiku-storage-directory
+
+
+
+# --- Mondrian Settings ----
+
+# enable/disable logging of mondrian internals, MDX, generated SQL queries and XMLA requests
+logMondrian = true
+logMdx = true
+logSql = true
+logXmla = true
+
+
+# the locale that is used for formatting numbers (1.234,56 vs. 1,234.56) and currencies (€ vs. $)
+locale = de_DE
+
+
+# set arbitrary configurations for the Mondrian engine
+# see https://mondrian.pentaho.com/documentation/configuration.php for options
+# mondrian.xxx =
+# mondrian.yyy =
+
+
