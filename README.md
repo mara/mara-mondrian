@@ -8,7 +8,7 @@
 
 A python interface for [Mondrian server](https://github.com/project-a/mondrian-server), a [Mondrian](https://en.wikipedia.org/wiki/Mondrian_OLAP_server) [XMLA](https://en.wikipedia.org/wiki/XML_for_Analysis) server combined with the [Saiku](https://www.meteorite.bi/products/saiku/) ad hoc analysis tool. Comes with
 
-- A [Makefile](.scripts/mondrian-server.mk) for running Mondrian Server locally.
+- A Makefile for running Mondrian Server locally.
 
 - [Mondrian schma](https://mondrian.pentaho.com/documentation/schema.php) generation from a [Mara Schema](https://github.com/mara/mara-schema) definition.
 
@@ -40,9 +40,9 @@ For an example of an integration into a flask application, have a look at the [m
 
 ## Running Saiku
 
-From within a Mara project, include [.scripts/mondrian-server.mk] in your project Makefile (as for example in [https://github.com/mara/mara-example-project-1/blob/master/Makefile](https://github.com/mara/mara-example-project-1/blob/master/Makefile)).
+From within a project, include [.scripts/mondrian-server.mk](https://github.com/mara/mara-mondrian/tree/master/.scripts/mondrian-server.mk) in your project Makefile (as for example in [https://github.com/mara/mara-example-project-1/blob/master/Makefile](https://github.com/mara/mara-example-project-1/blob/master/Makefile)).
 
-Then running `make run-mondrian-server` will start Saiku and the XMLA server on port 8080: 
+Running `make setup-mondrian-server` will create the required `mondrian-server.properties` file. And then running `make run-mondrian-server` will start Saiku and the XMLA server on port 8080: 
 
 ![Saiku](docs/saiku.png)
 
@@ -50,7 +50,9 @@ For running mondrian server in production, please have a look at [https://github
 
 &nbsp;
 
-## Mondrian schema generation
+## Features
+
+### Mondrian schema generation
 
 If you have a data warehouse schema defined in [Mara Schema](https://github.com/mara/mara-schema), then you can automatically create a mondrian schema file using the function `write_mondrian_schema` in [mara_mondrian/schema_generation.py](mara_mondrian/schema_generation.py).
 
@@ -58,17 +60,17 @@ Have a look at [https://github.com/mara/mara-example-project-1/blob/master/app/p
 
 &nbsp;
 
-## Mondrian cache flushing
+### Mondrian cache flushing
 
-With the function `flush_mondrian_cache` in [mara_mondrian/connection.py](mara_mondrian/connection.py) you can trigger a reload of the schema and a flushing of all caches in mondrian server.
+The function `flush_mondrian_cache` in [mara_mondrian/connection.py](https://github.com/mara/mara-mondrian/tree/master/mara_mondrian/connection.py) triggers a reload of the schema and a flushing of all caches in mondrian server.
 
 This file also contains functions for making XMLA requests. 
 
 &nbsp;
 
-## Saiku authentication via [Mara ACL](https://github.com/mara/mara-acl)
+### Saiku authentication via [Mara ACL](https://github.com/mara/mara-acl)
 
-Once you add the Saiku ACL resource in [mara_mondrian/views.py](mara_mondrian/views.py) to your project, you can control easily control which users can query which cubes:
+Once you add the Saiku ACL resource in [mara_mondrian/views.py](https://github.com/mara/mara-mondrian/tree/master/mara_mondrian/views.py) to your project, you can control easily control which users can query which cubes:
 
 ![Saiku ACL](docs/acl.png)
 
