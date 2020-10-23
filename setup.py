@@ -7,7 +7,7 @@ def get_long_description():
 
 setup(
     name='mara-mondrian',
-    version='1.0.2',
+    version='2.0.0',
 
     description='A python integration for the Saiku ad hoc analysis tool',
 
