@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.1 (2020-10-27)
+
+- Fix broken Makefile: escape sed delimiter in substitution values (#3)
+
+
 ## 2.0.0 (2020-10-23)
 
 - Update `mondrian-server.war` built with Java 11
