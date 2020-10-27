@@ -39,10 +39,10 @@ $(saiku-storage-directory):
 
 
 $(mondrian-server-properties-file): $(mondrian-server-directory)
-	cat $(mara-mondrian-package-dir)/mondrian-server.properties.example \
-	   | sed 's§/absolute/path/to/mondrian-schema.xml§$(mondrian-schema-file)§g' \
-	   | sed 's§^databaseUrl.*§databaseUrl=$(mondrian-server-db-connection-url)§g' \
-	   | sed 's§^saikuStorageDir.*§saikuStorageDir=$(saiku-storage-directory)§g' \
+	cat $(mara-mondrian-dir)/mondrian-server.properties.example \
+	   | sed 's@/absolute/path/to/mondrian-schema.xml@$(subst @,\@,$(mondrian-schema-file))@g' \
+	   | sed 's@^databaseUrl.*@databaseUrl=$(subst @,\@,$(mondrian-server-db-connection-url))@g' \
+	   | sed 's@^saikuStorageDir.*@saikuStorageDir=$(subst @,\@,$(saiku-storage-directory))@g' \
 	   > $(mondrian-server-properties-file)
 	>&2 echo '!!! copied $(mara-mondrian-dir)/mondrian-server.properties.example to $(mondrian-server-properties-file). Please check'
 
