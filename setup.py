@@ -7,7 +7,7 @@ def get_long_description():
 
 setup(
     name='mara-mondrian',
-    version='2.0.1',
+    version='2.0.2',
 
     description='A python integration for the Saiku ad hoc analysis tool',
 
@@ -25,6 +25,9 @@ setup(
     ],
 
     python_requires='>=3.6',
+
+    setup_requires=['setuptools_scm'],
+    include_package_data=True,
 
     packages=find_packages(),
 
